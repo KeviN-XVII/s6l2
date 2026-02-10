@@ -43,14 +43,17 @@ public class UsersController {
         return this.usersService.saveUser(payload);
     }
 
-////4 PUT /users/123 modifica lo specifico autore
-//    @PutMapping("/{userId}")
-//    public User  updateUser(@PathVariable long userId, @RequestBody UserPayload payload) {
-//    }
-//
-////5 DELETE /users/123 elimina uno specifico autore
-//    @DeleteMapping("/{userId}")
-//    @ResponseStatus(HttpStatus.NO_CONTENT)
-//    public void deleteUser(@PathVariable long userId) {}
-//
+//4 PUT /users/123 modifica lo specifico autore
+    @PutMapping("/{userId}")
+    public User  updateUser(@PathVariable long userId, @RequestBody UserPayload payload) {
+        return this.usersService.updateUser(userId, payload);
+    }
+
+//5 DELETE /users/123 elimina uno specifico autore
+    @DeleteMapping("/{userId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUser(@PathVariable long userId) {
+        this.usersService.deleteUser(userId);
+    }
+
 }
